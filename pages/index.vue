@@ -20,6 +20,11 @@ export default {
 </script>
 
 <style>
+body{
+  margin: 0;
+  padding-top: 4.5rem;
+  margin-bottom: 30px;
+}
 .container {
   margin: 0 auto;
   min-height: 100vh;
