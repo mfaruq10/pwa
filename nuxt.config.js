@@ -4,6 +4,7 @@ export default {
   /*
   ** Headers of the page
   */
+ 
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -15,6 +16,8 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  
+
   /*
   ** Customize the progress-bar color
   */
@@ -40,6 +43,7 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
+    ['@nuxtjs/pwa', { icon: false }],
   ],
   /*
   ** Build configuration
@@ -50,5 +54,8 @@ export default {
     */
     extend (config, ctx) {
     }
+    
   }
+  
 }
+

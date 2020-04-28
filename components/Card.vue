@@ -19,9 +19,9 @@
         </div>
       </b-row>
     </div>
-    <div v-else>
+    <!-- <div v-else>
       <h5>No meals available yet 😢</h5>
-    </div>
+    </div> -->
   </b-container>
 </template>
 <script>
