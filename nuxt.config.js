@@ -43,8 +43,27 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    [
+    '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyDys0--HcPNMMxZmdnIF99IvM9SkXwkVnk',
+          authDomain: 'vue-pwa-withapi.firebaseapp.com',
+          databaseURL: 'https://vue-pwa-withapi.firebaseio.com',
+          projectId: 'vue-pwa-withapi',
+          storageBucket: 'vue-pwa-withapi.appspot.com',
+          messagingSenderId: '678690413997',
+          appId: '1:678690413997:web:86e76ff4b770ab64259524',
+          measurementId: 'G-ZGP9236XTY'
+        },
+        services: {
+          auth: true // Just as example. Can be any other service.
+        }
+      }
+    ]
   ],
+
   /*
   ** Build configuration
   */

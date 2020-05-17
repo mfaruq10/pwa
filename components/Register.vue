@@ -50,7 +50,7 @@ export default {
             })
             .then(() => {})
         })
-      this.$router.replace({ name: 'Login' })
+      this.$router.replace({ name: 'login' })
         .catch(err => {
           this.error = err.message
         })
