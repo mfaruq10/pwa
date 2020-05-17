@@ -1,5 +1,5 @@
 <template>
-  <div class="home" >
+  <div class="saved" >
       <!-- <h1>This is a search page</h1> -->
     <div class="row my-5">
         <center>
@@ -9,7 +9,7 @@
     </div>
     <div class="row" v-if="user.loggedIn">
         <div class="col-md-3" v-for="result in fav" :key="result.id" style="text-align: center;">
-          <router-link :to="{ name: 'Detail', params: { id: result.id } }">
+          <router-link :to="{ name: 'detail', params: { id: result.id } }">
           <div class="card" style="width: 15rem; height: 90%;">
             <img class="card-img-top" :src="result.picture">
             <div class="card-body">
@@ -17,14 +17,16 @@
              <span class="badge badge-pill badge-primary">{{result.category}}</span>
             </div>
           </div>
-          </router-link>`
+          </router-link>
         </div>
     </div>
     <b-container v-else  >
       <div>
-          <h2>Silahkan login terlebih dahulu untuk menggunakan halaman ini</h2>
-           <img  src="../assets/stop.webp" width="360px" height="240px">
+          <a href="/login" >Login</a>
       </div>
+      <br/>
+      <br/>
+      <br/>
     </b-container>
   </div>
 </template>
@@ -34,7 +36,7 @@ import { mapGetters } from 'vuex'
 import firebase from 'firebase'
 const STORAGE_KEY = 'DATAFAVORIT'
 export default {
-  name: 'Home',
+  name: 'saved',
   data () {
     return {
       msg: 'Search',
@@ -60,7 +62,7 @@ export default {
         .signOut()
         .then(() => {
           this.$router.replace({
-            name: 'Login'
+            name: 'login'
           })
         })
     }

@@ -60,7 +60,19 @@ export default {
   data () {
     return {
       msg: 'Search',
-      results: ''
+      results: '',
+      fav: []
+    }
+  },
+  methods: {
+    addFav (favId, favPict, favName, favCategory) {
+      this.fav.push({ id: favId, picture: favPict, name: favName, category: favCategory })
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.fav))
+      this.$toast.success('Added to favorites !', {
+        theme: 'bubble',
+        position: 'top-center',
+        duration: '1500'
+      })
     }
   },
   mounted () {

@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
+  <div class="home">
       <!-- <h1>This is a search page</h1> -->
     <div class="row">
-        <div class="col-md-3" v-for="result in results" :key="result.idCategory" style="text-align: center;">
-          <router-link :to="{ name: 'filterkategori', params: { name: result.strCategory } }">
+        <div class="col-md-3" v-for="result in results" :key="result.idMeal" style="text-align: center;">
+            <router-link :to="{ name: 'detail', params: { id: result.idMeal } }">
             <div class="card" style="width: 15rem; height: 90%;">
-              <img class="card-img-top" :src="result.strCategoryThumb">
+              <img class="card-img-top" :src="result.strMealThumb">
               <div class="card-body">
-                <h5 class="card-title">{{result.strCategory}}</h5>
+                <h5 class="card-title">{{ result.strMeal }}</h5>
               </div>
             </div>
-          </router-link>
+            </router-link>
         </div>
     </div>
   </div>
@@ -26,10 +26,14 @@ export default {
     }
   },
   mounted () {
-    axios.get('https://www.themealdb.com/api/json/v1/1/categories.php').then(response => {
-      console.log(response.data.categories)
-      this.results = response.data.categories
+    axios.get('https://www.themealdb.com/api/json/v1/1/filter.php?', {
+      params: {
+        i: this.$route.params.name
+      }
     })
+      .then(response => {
+        this.results = response.data.meals
+      })
   }
 }
 </script>
